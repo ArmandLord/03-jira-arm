@@ -1,10 +1,11 @@
-import { NextPage } from "next/";
+import { Layout } from "@/components/layouts";
+import { NextPage } from "next";
 
 const HomePage: NextPage = () => {
   return (
-    <div>
+    <Layout title="Home Jira">
       <h1>Jira</h1>
-    </div>
+    </Layout>
   );
 };
 

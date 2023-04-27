@@ -14,7 +14,7 @@ export const Layout: FC<Props> = ({ title = "JirArm", children }) => {
         <title>{title}</title>
       </Head>
       <Navbar />
-      <main>{children}</main>
+      <main className="p-5 bg-black">{children}</main>
     </>
   );
 };

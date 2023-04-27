@@ -9,8 +9,8 @@ const baseColors = {
   "background-one": "#F0F8FF",
   "background-two": "#e6eef5",
   "background-three": "#bdc5cc",
-  dark: "#000000",
-  "dark-ligth": "#2c2c2c",
+  dark: "#2C2C2C",
+  "dark-ligth": "#555555",
 };
 
 module.exports = {

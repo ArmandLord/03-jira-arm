@@ -27,7 +27,7 @@ export const Navbar = () => {
   ];
 
   return (
-    <nav className="flex items-center justify-between flex-wrap p-6 sticky top-0 z-50">
+    <nav className="flex items-center justify-between flex-wrap p-6 sticky top-0 z-50 bg-black">
       <div className="flex items-center flex-shrink-0 text-background-three mr-6">
         <Link href="/">
           <span className="font-semibold text-xl tracking-tight">JIR</span>

@@ -1,9 +1,12 @@
+import { UIState } from "./UIProvider";
 import { TOGGLE_SIDEMENU } from "./types";
 
+type Action = { type: "TOGGLE_SIDEMENU"; payload: any };
+
 export const uiReducer = (
-  state: any,
-  { type, payload }: { type: string; payload: any }
-) => {
+  state: UIState,
+  { type, payload }: Action
+): UIState => {
   switch (type) {
     case TOGGLE_SIDEMENU:
       return {

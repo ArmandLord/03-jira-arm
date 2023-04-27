@@ -3,11 +3,11 @@ import { UIContext } from "./UIContext";
 import { uiReducer as reducer } from "./uiReducer";
 import { TOGGLE_SIDEMENU } from "./types";
 
-interface State {
+export interface UIState {
   sidemenuOpen: boolean;
 }
 
-const initialState: State = {
+const initialState: UIState = {
   sidemenuOpen: false,
 };
 

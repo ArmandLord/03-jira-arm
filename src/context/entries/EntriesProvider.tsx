@@ -16,6 +16,18 @@ const initialState: EntriesState = {
       createdAt: 1630500000000,
       status: "pending",
     },
+    {
+      _id: uuidv4(),
+      description: "Prueba y Error padrino",
+      createdAt: 1330500000000,
+      status: "in-progress",
+    },
+    {
+      _id: uuidv4(),
+      description: "Prueba y Error padrino",
+      createdAt: 2030500000000,
+      status: "finished",
+    },
   ],
 };
 

@@ -1,13 +1,14 @@
 import { PropsWithChildren, useReducer } from "react";
 import { EntriesContext } from "./EntriesContext";
 import { entriesReducer as reducer } from "./entriesReducer";
+import { Entry } from "@/interfaces";
 
 export interface EntriesState {
-  prop1: boolean;
+  entries: Entry[];
 }
 
 const initialState: EntriesState = {
-  prop1: true,
+  entries: [],
 };
 
 export const EntriesProvider = ({ children }: PropsWithChildren) => {

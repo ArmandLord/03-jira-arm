@@ -21,10 +21,9 @@ export const UIProvider = ({ children }: PropsWithChildren) => {
     });
   };
 
-  const value = {
-    sidemenuOpen: state.sidemenuOpen,
-    toggleSidemenu,
-  };
-
-  return <UIContext.Provider value={value}>{children}</UIContext.Provider>;
+  return (
+    <UIContext.Provider value={{ ...state, toggleSidemenu }}>
+      {children}
+    </UIContext.Provider>
+  );
 };

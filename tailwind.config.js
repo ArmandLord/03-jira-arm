@@ -10,6 +10,8 @@ const baseColors = {
   "background-two": "#e6eef5",
   "background-three": "#bdc5cc",
   "background-four": "#fff3b0",
+  "background-five": "#dda400",
+  "background-five-ligth": "#FFC107",
   dark: "#2C2C2C",
   "dark-ligth": "#555555",
 };

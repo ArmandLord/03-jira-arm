@@ -15,7 +15,7 @@ export const EntriesList: FC<Props> = ({ entries, status }) => {
     <div>
       <div
         style={{
-          height: "calc(100vh - 250px)",
+          height: "calc(100vh - 285px)",
           overflow: "scroll",
           padding: "5px 0",
         }}

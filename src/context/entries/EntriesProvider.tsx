@@ -34,8 +34,15 @@ const initialState: EntriesState = {
 export const EntriesProvider = ({ children }: PropsWithChildren) => {
   const [state, dispach] = useReducer(reducer, initialState);
 
+  const addEntry = (entry: Entry) => {
+    dispach({
+      type: "ADD_ENTRY",
+      payload: entry,
+    });
+  };
+
   return (
-    <EntriesContext.Provider value={{ ...state }}>
+    <EntriesContext.Provider value={{ ...state, addEntry }}>
       {children}
     </EntriesContext.Provider>
   );

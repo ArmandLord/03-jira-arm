@@ -22,6 +22,7 @@ export const CreateNewEntry = () => {
       createdAt: Date.now(),
       status: "pending",
     });
+    setEntry("");
   };
 
   return (

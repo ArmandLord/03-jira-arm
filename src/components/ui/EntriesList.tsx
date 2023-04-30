@@ -3,12 +3,15 @@ import { EntryCard } from "./EntryCard";
 import { EntrieStatus, Entry } from "@/interfaces";
 import { UIContext } from "@/context/ui";
 import { IoAddCircleOutline } from "react-icons/io5";
+import { EntriesContext } from "@/context/entries";
+
 interface Props {
   entries: Entry[];
   status: EntrieStatus;
 }
 export const EntriesList: FC<Props> = ({ entries, status }) => {
-  const { isDragging } = useContext(UIContext);
+  const { isDragging, toggleDragging } = useContext(UIContext);
+  const { changesStatusById } = useContext(EntriesContext);
 
   const filteredEntries = useMemo(
     () => entries.filter((entry) => entry.status === status),
@@ -17,6 +20,8 @@ export const EntriesList: FC<Props> = ({ entries, status }) => {
 
   const onDropEntry = (event: DragEvent<HTMLDivElement>) => {
     const id = event.dataTransfer.getData("text/plain");
+    changesStatusById(id, status);
+    toggleDragging(false);
   };
 
   return (

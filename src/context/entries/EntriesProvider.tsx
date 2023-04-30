@@ -1,7 +1,7 @@
 import { PropsWithChildren, useReducer } from "react";
 import { EntriesContext } from "./EntriesContext";
 import { entriesReducer as reducer } from "./entriesReducer";
-import { Entry } from "@/interfaces";
+import { EntrieStatus, Entry } from "@/interfaces";
 import { v4 as uuidv4 } from "uuid";
 
 export interface EntriesState {
@@ -41,8 +41,18 @@ export const EntriesProvider = ({ children }: PropsWithChildren) => {
     });
   };
 
+  const changesStatusById = (id: string, status: EntrieStatus) => {
+    dispach({
+      type: "CHANGE_STATUS",
+      payload: {
+        id,
+        status,
+      },
+    });
+  };
+
   return (
-    <EntriesContext.Provider value={{ ...state, addEntry }}>
+    <EntriesContext.Provider value={{ ...state, addEntry, changesStatusById }}>
       {children}
     </EntriesContext.Provider>
   );

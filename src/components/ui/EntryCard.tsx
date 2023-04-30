@@ -10,8 +10,6 @@ export const EntryCard: FC<Props> = ({ entry }) => {
   const { description, createdAt, status } = entry;
   const { isDragging, toggleDragging } = useContext(UIContext);
 
-  console.log(isDragging);
-
   const onDragStart = (event: DragEvent<HTMLDivElement>) => {
     toggleDragging(true);
     event.dataTransfer.setData("text/plain", entry._id);

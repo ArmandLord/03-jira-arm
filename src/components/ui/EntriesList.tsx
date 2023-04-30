@@ -1,12 +1,15 @@
-import { FC, useMemo, DragEvent } from "react";
+import { FC, useMemo, DragEvent, useContext } from "react";
 import { EntryCard } from "./EntryCard";
 import { EntrieStatus, Entry } from "@/interfaces";
+import { UIContext } from "@/context/ui";
 
 interface Props {
   entries: Entry[];
   status: EntrieStatus;
 }
 export const EntriesList: FC<Props> = ({ entries, status }) => {
+  const { isDragging } = useContext(UIContext);
+
   const filteredEntries = useMemo(
     () => entries.filter((entry) => entry.status === status),
     [entries]
@@ -14,7 +17,6 @@ export const EntriesList: FC<Props> = ({ entries, status }) => {
 
   const onDropEntry = (event: DragEvent<HTMLDivElement>) => {
     const id = event.dataTransfer.getData("text/plain");
-    console.log(id);
   };
 
   return (
@@ -25,6 +27,9 @@ export const EntriesList: FC<Props> = ({ entries, status }) => {
         height: "calc(100vh - 285px)",
         overflow: "scroll",
         padding: "5px 0",
+        background: isDragging ? "rgba(255,255,255,0.2)" : "transparent",
+        borderRadius: isDragging ? "10px" : "0",
+        border: isDragging ? "1px dashed #ccc" : "none",
       }}
     >
       {filteredEntries.map((entry) => (

@@ -14,11 +14,12 @@ export const EntryCard: FC<Props> = ({ entry }) => {
 
   const onDragStart = (event: DragEvent<HTMLDivElement>) => {
     // hacer efectos
+    toggleDragging(true);
     event.dataTransfer.setData("text/plain", entry._id);
   };
 
   const onDragEnd = () => {
-    console.log("drag end");
+    toggleDragging(false);
   };
 
   return (
@@ -26,7 +27,9 @@ export const EntryCard: FC<Props> = ({ entry }) => {
       draggable
       onDragStart={onDragStart}
       onDragEnd={onDragEnd}
-      className="bg-background-three p-4 mb-1 shadow rounded"
+      className={`bg-background-three p-4 mb-1 shadow rounded ${
+        isDragging ? "hover:cursor-grabbing" : "hover:cursor-grab"
+      }`}
     >
       <div className="flex justify-between">
         <h3 className="text-xl font-bold mb-2">{description}</h3>

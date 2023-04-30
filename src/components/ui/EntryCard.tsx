@@ -13,7 +13,6 @@ export const EntryCard: FC<Props> = ({ entry }) => {
   console.log(isDragging);
 
   const onDragStart = (event: DragEvent<HTMLDivElement>) => {
-    // hacer efectos
     toggleDragging(true);
     event.dataTransfer.setData("text/plain", entry._id);
   };

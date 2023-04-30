@@ -2,7 +2,7 @@ import { FC, useMemo, DragEvent, useContext } from "react";
 import { EntryCard } from "./EntryCard";
 import { EntrieStatus, Entry } from "@/interfaces";
 import { UIContext } from "@/context/ui";
-
+import { IoAddCircleOutline } from "react-icons/io5";
 interface Props {
   entries: Entry[];
   status: EntrieStatus;
@@ -35,6 +35,12 @@ export const EntriesList: FC<Props> = ({ entries, status }) => {
       {filteredEntries.map((entry) => (
         <EntryCard key={entry._id} entry={entry} />
       ))}
+
+      {isDragging && (
+        <div className="flex h-full justify-center items-center">
+          <IoAddCircleOutline className="text-4xl text-gray-400" />
+        </div>
+      )}
     </div>
   );
 };

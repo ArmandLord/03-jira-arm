@@ -1,7 +1,9 @@
 import { UIState } from "./UIProvider";
-import { TOGGLE_SIDEMENU } from "./types";
+import { TOGGLE_DRAGGING, TOGGLE_SIDEMENU } from "./types";
 
-type Action = { type: "TOGGLE_SIDEMENU"; payload: any };
+type Action =
+  | { type: "TOGGLE_SIDEMENU"; payload: boolean }
+  | { type: "TOGGLE_DRAGGING"; payload: boolean };
 
 export const uiReducer = (
   state: UIState,
@@ -12,6 +14,12 @@ export const uiReducer = (
       return {
         ...state,
         sidemenuOpen: payload,
+      };
+
+    case TOGGLE_DRAGGING:
+      return {
+        ...state,
+        isDragging: payload,
       };
 
     default:

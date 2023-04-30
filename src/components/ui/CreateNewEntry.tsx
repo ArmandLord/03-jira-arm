@@ -3,6 +3,7 @@ import { IoMdAddCircleOutline } from "react-icons/io";
 import { FaRegSave } from "react-icons/fa";
 import { EntriesContext } from "@/context/entries";
 import { v4 as uuidv4 } from "uuid";
+import { toast, Toaster } from "sonner";
 
 export const CreateNewEntry = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -15,6 +16,12 @@ export const CreateNewEntry = () => {
 
   const handleSubmit = (e: ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    if (entry.trim().length === 0) {
+      toast.error("La entrada no puede estar vacia");
+      return;
+    }
+
     setIsOpen((prev) => !prev);
     addEntry({
       _id: uuidv4(),
@@ -27,6 +34,7 @@ export const CreateNewEntry = () => {
 
   return (
     <>
+      <Toaster position="top-right" richColors />
       {isOpen ? (
         <form onSubmit={handleSubmit} className="flex flex-col mb-2">
           <input

@@ -1,5 +1,6 @@
-import { FC, DragEvent } from "react";
+import { FC, DragEvent, useContext } from "react";
 import { Entry } from "@/interfaces";
+import { UIContext } from "@/context/ui";
 
 interface Props {
   entry: Entry;
@@ -7,6 +8,9 @@ interface Props {
 
 export const EntryCard: FC<Props> = ({ entry }) => {
   const { description, createdAt, status } = entry;
+  const { isDragging, toggleDragging } = useContext(UIContext);
+
+  console.log(isDragging);
 
   const onDragStart = (event: DragEvent<HTMLDivElement>) => {
     // hacer efectos
@@ -22,7 +26,6 @@ export const EntryCard: FC<Props> = ({ entry }) => {
       draggable
       onDragStart={onDragStart}
       onDragEnd={onDragEnd}
-      id={entry._id}
       className="bg-background-three p-4 mb-1 shadow rounded"
     >
       <div className="flex justify-between">

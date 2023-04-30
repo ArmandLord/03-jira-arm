@@ -49,7 +49,10 @@ export const CreateNewEntry = () => {
             <button
               className="font-bold py-2 text-background-three hover:text-primary focus:outline-none focus:shadow-outline"
               type="button"
-              onClick={() => setIsOpen((prev) => !prev)}
+              onClick={() => {
+                setIsOpen((prev) => !prev);
+                setEntry("");
+              }}
             >
               Cancelar
             </button>

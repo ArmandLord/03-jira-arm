@@ -20,14 +20,14 @@ export const connectDB = async () => {
         }
     }
 
-    await mongoose.connect('')
+    await mongoose.connect(process.env.MONGO_URL || '', )
     mongoConection.isConnected = 1;
-    console.log('conectado a MongoDB:');
+    console.log('conectado a MongoDB:', process.env.MONGO_URL);
 };
 
 
 export const disconnectDB = async () => {
-    if(mongoConection.isConnected !== 0) return;
+    if(mongoConection.isConnected === 0) return;
 
     await mongoose.disconnect();
     console.log('Desconectado de MongoDB');

@@ -9,7 +9,8 @@ type ActionType =
         id: string;
         status: EntrieStatus;
       };
-    };
+    }
+  | { type: "GET_ENTRIES"; payload: Entry[] };
 
 export const entriesReducer = (
   state: EntriesState,
@@ -32,6 +33,11 @@ export const entriesReducer = (
               }
             : entry
         ),
+      };
+    case "GET_ENTRIES":
+      return {
+        ...state,
+        entries: [...payload],
       };
     default:
       return state;

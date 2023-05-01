@@ -9,26 +9,7 @@ export interface EntriesState {
 }
 
 const initialState: EntriesState = {
-  entries: [
-    {
-      _id: uuidv4(),
-      description: "Prueba y Error padrino",
-      createdAt: 1030500000000,
-      status: "pending",
-    },
-    {
-      _id: uuidv4(),
-      description: "Prueba y Error padrino",
-      createdAt: 1030500000000,
-      status: "in-progress",
-    },
-    {
-      _id: uuidv4(),
-      description: "Prueba y Error padrino",
-      createdAt: 1030500000000,
-      status: "finished",
-    },
-  ],
+  entries: [],
 };
 
 export const EntriesProvider = ({ children }: PropsWithChildren) => {

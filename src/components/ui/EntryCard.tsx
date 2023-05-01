@@ -24,15 +24,22 @@ export const EntryCard: FC<Props> = ({ entry }) => {
       draggable
       onDragStart={onDragStart}
       onDragEnd={onDragEnd}
-      className={`bg-background-three p-4 mb-1 shadow rounded ${
+      className={` bg-orange-50 p-4 mb-1 shadow rounded ${
         isDragging ? "hover:cursor-grabbing" : "hover:cursor-grab"
       }`}
     >
       <div className="flex justify-between">
-        <h3 className="text-xl font-bold mb-2">{description}</h3>
-        <p className="text-gray-600">{status}</p>
+        <h3 className="text-sm text-neutral-800 mb-4">{description}</h3>
       </div>
-      <p className="text-gray-600">{createdAt}</p>
+      <div
+        className={`flex justify-end w-full ${
+          status === "pending" ? "text-yellow-500" : "text-green-500"
+        }`}
+      >
+        <p className="text-dark-ligth text-xs">
+          {new Date(createdAt).toLocaleDateString()}
+        </p>
+      </div>
     </div>
   );
 };

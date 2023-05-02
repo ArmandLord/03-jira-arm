@@ -2,7 +2,6 @@ import { PropsWithChildren, useEffect, useReducer } from "react";
 import { EntriesContext } from "./EntriesContext";
 import { entriesReducer as reducer } from "./entriesReducer";
 import { EntrieStatus, Entry } from "@/interfaces";
-import { v4 as uuidv4 } from "uuid";
 import { entriesApi } from "../../../apis";
 
 export interface EntriesState {
@@ -16,10 +15,16 @@ const initialState: EntriesState = {
 export const EntriesProvider = ({ children }: PropsWithChildren) => {
   const [state, dispach] = useReducer(reducer, initialState);
 
-  const addEntry = (entry: Entry) => {
+  const addEntry = async (entry: Entry) => {
+    const { description } = entry;
+
+    const { data } = await entriesApi.post<Entry>("/entries", {
+      description,
+    });
+
     dispach({
       type: "ADD_ENTRY",
-      payload: entry,
+      payload: data,
     });
   };
 

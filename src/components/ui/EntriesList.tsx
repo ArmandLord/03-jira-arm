@@ -4,6 +4,7 @@ import { EntrieStatus, Entry } from "@/interfaces";
 import { UIContext } from "@/context/ui";
 import { IoAddCircleOutline } from "react-icons/io5";
 import { EntriesContext } from "@/context/entries";
+import Link from "next/link";
 
 interface Props {
   entries: Entry[];
@@ -38,7 +39,9 @@ export const EntriesList: FC<Props> = ({ entries, status }) => {
       }}
     >
       {filteredEntries.map((entry) => (
-        <EntryCard key={entry._id} entry={entry} />
+        <Link key={entry._id} href={`/entries/${entry._id}`}>
+          <EntryCard entry={entry} />
+        </Link>
       ))}
 
       {isDragging && (

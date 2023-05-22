@@ -8,6 +8,7 @@ type ActionType =
       payload: {
         id: string;
         status: EntrieStatus;
+        description: string;
       };
     }
   | { type: "GET_ENTRIES"; payload: Entry[] };
@@ -30,6 +31,7 @@ export const entriesReducer = (
             ? {
                 ...entry,
                 status: payload.status,
+                description: payload.description,
               }
             : entry
         ),

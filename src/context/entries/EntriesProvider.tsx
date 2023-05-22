@@ -28,11 +28,16 @@ export const EntriesProvider = ({ children }: PropsWithChildren) => {
     });
   };
 
-  const changesStatusById = async (id: string, status: EntrieStatus) => {
+  const changesStatusById = async (
+    id: string,
+    status: EntrieStatus,
+    description: string
+  ) => {
     try {
       console.log(status);
       const { data } = await entriesApi.put<Entry>(`/entries/${id}`, {
         status,
+        description,
       });
 
       dispach({
@@ -40,6 +45,7 @@ export const EntriesProvider = ({ children }: PropsWithChildren) => {
         payload: {
           id,
           status: data.status,
+          description: data.description,
         },
       });
     } catch (error) {}

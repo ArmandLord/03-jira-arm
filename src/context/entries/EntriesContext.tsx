@@ -4,7 +4,11 @@ import { createContext } from "react";
 export interface ContextProps {
   entries: Entry[];
   addEntry: (entry: Entry) => void;
-  changesStatusById: (id: string, status: EntrieStatus) => void;
+  changesStatusById: (
+    id: string,
+    status: EntrieStatus,
+    description: string
+  ) => void;
   refreshEntries: () => void;
 }
 

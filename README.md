@@ -1,6 +1,6 @@
 # Next.js jirarm
 
-Para correr localmente, se necesita la base de datos
+Para correr localmente, se necesita la base de datos.
 
 ```
 docker-compose up -d

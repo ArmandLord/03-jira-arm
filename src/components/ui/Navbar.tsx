@@ -16,13 +16,13 @@ export const Navbar = () => {
   const navItems: PropsNavItems[] = [
     {
       id: 1,
-      name: "Recetas",
-      href: "/recipe",
+      name: "Jira",
+      href: "/",
     },
     {
       id: 2,
-      name: "Agrega",
-      href: "/create-recipes",
+      name: "Jira",
+      href: "/",
     },
   ];
 

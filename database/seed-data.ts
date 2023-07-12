@@ -11,17 +11,17 @@ interface SeedEntry {
 export const seedData: SeedData = {
   entries: [
     {
-      description: "Prueba y Error padrino",
+      description: "Tarea 1",
       createdAt: Date.now(),
       status: "pending",
     },
     {
-      description: "Prueba y Error padrino",
+      description: "Tarea 2",
       createdAt: Date.now() - 1000000,
       status: "in-progress",
     },
     {
-      description: "Prueba y Error padrino",
+      description: "Tarea 3",
       createdAt: Date.now() - 2000000,
       status: "finished",
     },
